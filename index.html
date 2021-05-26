@@ -6,54 +6,132 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meme generator</title>
-    <link rel="stylesheet" href="CSS/fontawesome.css">
+    <!-- FontAwesome -->
     <link href="CSS/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
-    <!--load all styles -->
-
     <link rel="stylesheet" href="CSS/Font Awesome 5 Brands-Regular-400.otf">
     <link rel="stylesheet" href="CSS/Font Awesome 5 Free-Solid-900.otf">
+    <!-- Mis Estilos -->
     <link rel="stylesheet" href="CSS/style.css">
-
+    <!-- Mi JS -->
+    <script src="scripts.js"></script>
 </head>
 <header>
+    <div class="tituloheader">
+        <div class="encabezado">
+            <p> Generador de Memes</p>
+        </div>
+        <ul class="listcenter">
+            <li>
+                <button class="botonesHeader" id="btnImagen">
+                    <i class="fas fa-file-image fa-2x"></i>
+                    <h3 class="textoheader">Imagen </h3>
+                </button>
 
-    <div class="encabezado">
-        <p> Generador de Memes</p>
+            </li>
+            <li>
+                <button class="botonesHeader">
+                    <i class="fas fa-font fa-2x" aria-hidden="true"></i>
+                    <h3 class="textoheader">Texto</h3>
+                </button>
+            </li>
+            <li>
+                <button class="botonesHeader">
+                    <i class="far fa-lightbulb fa-2x" aria-hidden="true"></i>
+                    <h3 class="textoheader" id="lightButton"> Modo Oscuro </h3>
+                </button>
+            </li>
+        </ul>
     </div>
-    <ul class="listcenter">
-        <li> <i class="fas fa-file-image icontext"></i>
-            <h3 class="  textoheader">
-                Imagen
-            </h3>
-        </li>
-        <li>
-            <i class="fas fa-font button-icon-text icontext" aria-hidden="true"></i>
 
-            <h3 class="  textoheader">
-                Texto
-            </h3>
-        </li>
-        <li> <i class="far fa-lightbulb button-icon-text icontext" aria-hidden="true"></i>
-            <h3 class="  textoheader">
-                Modo Oscuro
-            </h3>
-        </li>
+    <aside class="panel" id="panel-imagen" >
+        <strong> IMAGEN </strong>
+        <strong class="url">URL</strong>
 
+        <input type="text" class="texturl">
+        <!-- <div class="fondo"> <strong>FONDO</strong></div>
+        <input type="button" class="botonaside"> -->
+        <!-- <button type="button" id="CloseSidebar" class="sidebar">
+        </button> -->
+        <!-- <section id="imagen-editar" class="imagen-editar">
+            <h2>Imagen</h2>
+            <h3>URL</h3>
+            <input id="url" type="url" class="font-style"> -->
+        <h3 class="Fondotext">FONDO</h3>
+        <div class="Fondo">
+        <div class="Fondoseccion">
 
-    </ul>
+            <div class=" botonesHeader seleccionarcolor">
+                <input type="color" value="#000000" id="colorPicker" class="colorpicker">
+                <span id="colorBackground" class="numerocolor">#000000</span>
+            </div>
+        </div>
 
+        <div class="Fondoseccion">
+            <select name="" id="colorBlend" class="filterselector ">
+                <option value="unset">Ninguno</option>
+                <option value="lighten">Aclarar</option>
+                <option value="darken">Oscurecer</option>
+                <option value="difference">Diferencia</option>
+                <option value="luminosity">Luminosidad</option>
+                <option value="multiply">Multiplicar</option>
+            </select>
+        </div>
+    </div> 
+        <h3 class="Fondotext">FILTROS
+            <i class="fas fa-adjust"></i>
+        </h3>
+        <label for="brightneSlider" class="Fondotext">BRILLO</label>
+        <input type="range" id="brightneSlider" class="input-filter" data-property="brightness" min="0" max="1"
+            step="0.1" value="1">
 
-    </div>
+        <label for="opacitySlider" class="Fondotext">OPACIDAD</label>
+        <input type="range" id="opacitySlider" class="input-filter" data-property="opacity" min="0" max="1" step="0.1"
+            value="1">
+
+        <label for="contrastSlider" class="Fondotext">CONTRASTE</label>
+        <input type="range" id="contrastSlider" class="input-filter" data-property="contrast" min="100" max="1000"
+            step="1" value="100">
+
+        <label for="blurSlider" class="Fondotext">DESENFOQUE</label>
+        <input type="range" id="blurSlider" class="input-filter" data-property="blur" min="0" max="10" step="0.1"
+            value="0">
+
+        <label for="grayScaleSlider" class="Fondotext">ESCALA DE GRISES</label>
+        <input type="range" id="grayScaleSlider" class="input-filter" data-property="grayscale" min="0" max="100"
+            step="1" value="0">
+
+        <label for="sepiaSlider" class="Fondotext">SEPIA</label>
+        <input type="range" id="sepiaSlider" class="input-filter" data-property="sepia" min="0" max="100" step="1"
+            value="0">
+
+        <label for="hueRotateSlider" class="Fondotext">HUE</label>
+        <input type="range" id="hueRotateSlider" class="input-filter" data-property="hue-rotation" min="0" max="359"
+            step="1" value="0">
+
+        <label for="saturateSlider" class="Fondotext">SATURADO</label>
+        <input type="range" id="saturateSlider" class="input-filter" data-property="saturation" min="100" max="1000"
+            step="10" value="100">
+
+        <label for="invertSlider" class="Fondotext">NEGATIVO</label>
+        <input type="range" id="invertSlider" class="input-filter" data-property="invert" min="0" max="1" step="0.1"
+            value="0">
+        <button id="resetbutton" class="resetbutton Fondotext">Restablecer Filtros
+    </aside>
+
 </header>
-<div class="Container">
-    <h2 class="Textsmeme"> TOP TEXT </h2>
-    <div class="Containernegro">
-    </div>
-    <h2 class="Bottomeme">BOTTOM TEXT</h2>
 
-</div>
 
 <body>
+
+    <div class="Container">
+
+        <h2 class="Textsmeme"> TOP TEXT </h2>
+        <div class="Containernegro">
+        </div>
+        <h2 class="Bottomeme">BOTTOM TEXT</h2>
+
+    </div>
+
 
 </body>
 
