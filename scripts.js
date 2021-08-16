@@ -25,8 +25,7 @@ const inicializarPaneles = () => {
   const link = document.querySelector('.texturl');
 
 
-
-  // -----------------------------------------------------FILTRO DE IMAGEN------------------------------------------------------------------------
+  // -----------------------------------------------------FILTRO DE IMAGEN--------------------------------------------------------------------------------
   let imagen = document.querySelector('.Containernegro');
   let FBrillo = document.getElementById('brightneSlider');
   let FOpacity = document.getElementById('opacitySlider');
@@ -38,27 +37,27 @@ const inicializarPaneles = () => {
   let FSaturation = document.getElementById('saturateSlider');
   let FInvert = document.getElementById('invertSlider');
   let PColor = document.getElementById('colorPicker');
-  const valueFilter = () => {
-    imagen.style.filter = `brightness(${FBrillo.value}) opacity(${FOpacity.value}) blur(${FBlur.value}px) contrast(${FContrast.value}%) grayscale(${FGray.value}%) hue-rotate(${FHue.value}deg) sepia(${FSepia.value}%) saturate(${FSaturation.value}%) invert(${FInvert.value}
-      )`
-      // const resetbutton = document.getElementById('resetbutton');
-      // const Btnr = () => {
-      //     brightness.value = 1;
-      //     opacity.value = 1;
-      //     contrast.value = 100;
-      //     blur.value = 0;
-      //     grayscale.value = 0;
-      //     sepia.value = 0;
-      //     hueRotation.value = 0;
-      //     saturation.value = 100;
-      //     invert.value = 0;
-      
-      //     changeFilter();
-      // }
-      // resetbutton.addEventListener('click', Btnr);
-  };
+  const resetbutton = document.querySelector('.resetbutton');
+  const valueFilter = () => imagen.style.filter = `brightness(${FBrillo.value}) opacity(${FOpacity.value}) blur(${FBlur.value}px) contrast(${FContrast.value}%) grayscale(${FGray.value}%) hue-rotate(${FHue.value}deg) sepia(${FSepia.value}%) saturate(${FSaturation.value}%) invert(${FInvert.value})`;
+  const BtnR = () => {
+    FBrillo.value = 1;
+    FOpacity.value = 1;
+    FContrast.value = 100;
+    FBlur.value = 0;
+    FGray.value = 0;
+    FSepia.value = 0;
+    FHue.value = 0;
+    FSaturation.value = 100;
+    FInvert.value = 0;
+    valueFilter()
+  }
+  // ---------------------------------------------------------MODO DE FUSIÓN-------------------------------------------------------------------------------
+  resetbutton.addEventListener('click', BtnR);
+  let CBlend = document.getElementById('colorBlend');
+  CBlend.addEventListener('click', () => imagen.style.backgroundBlendMode = CBlend.value)
 
-  // ---------------------------------------------------------EVENTOS FILTROS-------------------------------------------------------------------------
+
+  // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
   FOpacity.addEventListener('click', () => valueFilter())
   FContrast.addEventListener(`click`, () => valueFilter())
@@ -68,19 +67,18 @@ const inicializarPaneles = () => {
   FHue.addEventListener(`click`, () => valueFilter())
   FSaturation.addEventListener(`click`, () => valueFilter())
   FInvert.addEventListener(`click`, () => valueFilter())
+  // ---------------------------------------------------------SELECTOR RADIAL------------------------------------------------------------------------------
+  let rgbNumber = document.querySelector('.numerocolor');
+
   PColor.addEventListener(`input`, () => {
-     imagen.style.backgroundColor = PColor.value
-    console.log(PColor.value)
+    imagen.style.backgroundColor = PColor.value
+    rgbNumber.innerText = PColor.value})
 
-  })
- 
 
-  const cargarImagen = () => {
-    imagen.style.backgroundImage = `url("${link.value}")`;
-    
-  }
+  // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
+  const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
   link.addEventListener('change', cargarImagen);
-  
+
 
 
   guardarValorBtnImagen.addEventListener('click', () => {
@@ -103,9 +101,6 @@ const inicializarPaneles = () => {
 const inicializar = () => {
   inicializarPaneles()
 }
-// const cargarImagen = () =>{
-//   imagen.src='chobits.jpg'
-// }
 
 
 //una vez que cargue todo comienzo a iniciar las diferentes secciones,no antes porque sino todo llega nulo

@@ -61,6 +61,10 @@ i {
     justify-content: center;
     background-color: black;
     padding: 0%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
 }
 
 p {
