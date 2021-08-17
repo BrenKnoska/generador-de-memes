@@ -74,7 +74,7 @@ const inicializarPaneles = () => {
 
   PColor.addEventListener(`input`, () => {
     imagen.style.backgroundColor = PColor.value
-    rgbNumber.innerText = PColor.value})
+    rgbNumber.innerText = PColor.value.toUpperCase()})
 
 
   // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
