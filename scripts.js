@@ -21,6 +21,8 @@
 
 const inicializarPaneles = () => {
   let panelImagen = document.getElementById("panel-imagen");
+  let panelTexto = document.getElementById("panel-texto");
+  
   let guardarValorBtnImagen = document.getElementById('btnImagen');
   const link = document.querySelector('.texturl');
 
@@ -77,7 +79,7 @@ const inicializarPaneles = () => {
 
   // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
   const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
-  link.addEventListener('change', cargarImagen);
+  link.addEventListener('input', cargarImagen);
 
 
 
@@ -90,11 +92,15 @@ const inicializarPaneles = () => {
 
   const ocultarPanel = () => {
     panelImagen.classList.add('no-mostrar');
-    // if (nomostrar == true) {
-    //   console.log("ahora es falso");
-    //   panelImagen.classList.remove('no-mostrar');
-    // }
+    if (panelImagen == true) {
+      console.log("ahora es falso");
+      panelImagen.classList.remove('no-mostrar');
+    }else{
+      panelTexto.classList.add('no-mostrar');
+    }
+
   }
+
 
 
 }

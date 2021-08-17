@@ -42,41 +42,33 @@
             </li>
         </ul>
     </div>
-
-    <aside class="panel" id="panel-imagen" >
+    <!-- -----------------------------------------------------BARRA LATERAL IMAGEN------------------------------------------------------------------------- -->
+    <aside class="panel" id="panel-imagen">
         <strong> IMAGEN </strong>
         <strong class="url">URL</strong>
 
-        <input type="text" class="texturl">
-        <!-- <div class="fondo"> <strong>FONDO</strong></div>
-        <input type="button" class="botonaside"> -->
-        <!-- <button type="button" id="CloseSidebar" class="sidebar">
-        </button> -->
-        <!-- <section id="imagen-editar" class="imagen-editar">
-            <h2>Imagen</h2>
-            <h3>URL</h3>
-            <input id="url" type="url" class="font-style"> -->
+        <input type="text" class="texturl whiteLetter">
         <h3 class="Fondotext">FONDO</h3>
         <div class="Fondo">
-        <div class="Fondoseccion">
+            <div class="Fondoseccion">
 
-            <div class=" botonesHeader seleccionarcolor">
-                <input type="color" value="#000000" id="colorPicker" class="colorpicker">
-                <span id="colorBackground" class="numerocolor">#000000</span>
+                <div class=" botonesHeader seleccionarcolor">
+                    <input type="color" value="#000000" id="colorPicker" class="colorpicker">
+                    <span id="colorBackground" class="numerocolor">#000000</span>
+                </div>
+            </div>
+
+            <div class="Fondoseccion">
+                <select name="" id="colorBlend" class="filterselector ">
+                    <option value="unset">Ninguno</option>
+                    <option value="lighten">Aclarar</option>
+                    <option value="darken">Oscurecer</option>
+                    <option value="difference">Diferencia</option>
+                    <option value="luminosity">Luminosidad</option>
+                    <option value="multiply">Multiplicar</option>
+                </select>
             </div>
         </div>
-
-        <div class="Fondoseccion">
-            <select name="" id="colorBlend" class="filterselector ">
-                <option value="unset">Ninguno</option>
-                <option value="lighten">Aclarar</option>
-                <option value="darken">Oscurecer</option>
-                <option value="difference">Diferencia</option>
-                <option value="luminosity">Luminosidad</option>
-                <option value="multiply">Multiplicar</option>
-            </select>
-        </div>
-    </div> 
         <h3 class="Fondotext">FILTROS
             <i class="fas fa-adjust"></i>
         </h3>
@@ -118,6 +110,82 @@
         <button id="resetbutton" class="resetbutton Fondotext">Restablecer Filtros
     </aside>
 
+    <!------------------------------------------------------------BARRA LATERAL TEXTO------------------------------------------------------------- -->
+    <aside class="panel" id="panel-texto">
+        <strong> TEXTO </strong>
+        <strong class="titulos">SUPERIOR</strong>
+        <input type="text" class="textSup whiteLetter">
+        <label class="firstCheck"> <input type="checkbox" id="checksupText" value="activado"> Sin texto superior</label>
+        <h3 class="titulos">INFERIOR</h3>
+        <input type="text" class="textInf whiteLetter">
+        <label class="twoCheck"> <input type="checkbox" id="checkinfText" value="activado"> Sin texto superior</label>
+        <strong class="titulos">FUENTE</strong>
+
+        <div class="Fuenteseccion">
+            <select name="" id="textPick" class="textselector whiteLetter">
+                <option value="Arial">Arial</option>
+                <option value="Arial Black">Arial Black</option>
+                <option value="American Typewriter">American Typewriter</option>
+                <option value="Andale Mono">Andale Mono</option>
+                <option value="Comic Sans">Comic Sans MS</option>
+                <option value="Impact">Impact</option>
+                <option value="Verdana">Verdana</option>
+                <option value="Times New Roman">Times New Roman</option>
+            </select>
+            <input type="number" class="numberLetter whiteLetter">
+            <button class="liner whiteLetter">
+                <i class="fas fa-align-left" aria-hidden="true"></i>
+            </button>
+            <button class="liner whiteLetter">
+                <i class="fas fa-align-center" aria-hidden="true"></i>
+            </button>
+            <button class="liner whiteLetter">
+                <i class="fas fa-align-right" aria-hidden="true"></i>
+            </button>
+
+        </div>
+        <div class="colorTextoYFondo">
+            <div class= "contenedorColores">
+                <h3 class="titulosText ">COLOR </h3>
+                <input type ="color" value="#000000" id="colorPickers" class="colorpickerText ">
+                <span id="colorBackground" class="numeroSeccion">#000000</span>
+            </div>
+          
+            <div  class="contenedorColores">
+
+                <h3 class="titulosText">FONDO</h3>
+                <input type="color" value="#000000" id="colorPickers" class="colorpickerText ">
+                <span id="colorBackground" class="numeroSeccion">#000000</span>
+            </div>
+            
+
+        </div>
+        <label class="firstCheck"> <input type="checkbox" id="checksupText" value="activado"> Fondo transparente</label>
+        <h3 class="titulOutline">CONTORNO</h3>
+        <div>
+            <button class="linerOutline whiteLetter">
+                <h3 class="outlineText">Ninguno</h3>
+            </button>
+            <button class="linerOutline whiteLetter">
+          <h3 class= "outlineText">Claro</h3>
+            </button>
+            <button class="linerOutline whiteLetter">
+          <h3 class= "outlineText">Oscuro</h3>
+            </button>
+        </div>
+        <h3 class="titulos">ESPACIADO</h3>
+        <input type="number" class="numberSpace whiteLetter">
+        <h3 class="titulos">INTERLINEADO</h3>
+        <input type="number" class="numberLiner whiteLetter">
+
+
+
+
+
+
+    </aside>
+
+
 </header>
 
 
@@ -127,7 +195,7 @@
 
         <h2 class="Textsmeme"> TOP TEXT </h2>
         <img class="Containernegro">
-    </img>
+        </img>
         <h2 class="Bottomeme">BOTTOM TEXT</h2>
 
     </div>
