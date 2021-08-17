@@ -20,13 +20,18 @@
 
 
 const inicializarPaneles = () => {
-  let panelImagen = document.getElementById("panel-imagen");
-  let panelTexto = document.getElementById("panel-texto");
-  
-  let guardarValorBtnImagen = document.getElementById('btnImagen');
+
   const link = document.querySelector('.texturl');
 
+  //--------------------------------------------------BOTONES NAV-----------------------------------------------------  
+  let panelImagen = document.getElementById("panel-imagen");
+  let panelTexto = document.getElementById("panel-texto");
 
+  let btnPanelImagen = document.getElementById('btnImagen');
+  let btnPanelTexto = document.getElementById('btnTexto')
+  let btnModoColor = document.getElementById('btnLight');
+  //  ------------------modo oscuro y modo claro----------------------------------------------------------------------//
+  let BodyContainer = document.querySelector('.Container');
   // -----------------------------------------------------FILTRO DE IMAGEN--------------------------------------------------------------------------------
   let imagen = document.querySelector('.Containernegro');
   let FBrillo = document.getElementById('brightneSlider');
@@ -74,33 +79,50 @@ const inicializarPaneles = () => {
 
   PColor.addEventListener(`input`, () => {
     imagen.style.backgroundColor = PColor.value
-    rgbNumber.innerText = PColor.value.toUpperCase()})
+    rgbNumber.innerText = PColor.value.toUpperCase()
+  })
 
 
   // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
   const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
+
   link.addEventListener('input', cargarImagen);
+  // ------------------------------------------------------------------PANEL------------------------------------------------------------------------------
 
+  const cambiarPanel = (event) => {
 
-
-  guardarValorBtnImagen.addEventListener('click', () => {
-    ocultarPanel()
-  })
-
-
-
-
-  const ocultarPanel = () => {
-    panelImagen.classList.add('no-mostrar');
-    if (panelImagen == true) {
-      console.log("ahora es falso");
+    if (event.target.id == "btnImagen") {
       panelImagen.classList.remove('no-mostrar');
-    }else{
       panelTexto.classList.add('no-mostrar');
     }
 
+    else if (event.target.id == "btnTexto") {
+      panelImagen.classList.add('no-mostrar');
+      panelTexto.classList.remove('no-mostrar');
+    }
+    else if (event.target.id == "btnLight" && event.target.classList[1] == "darkMode") {
+      //haceresto otro 
+      btnModoColor.classList.add("lightMode");
+      btnModoColor.classList.remove("darkMode");
+
+      BodyContainer.style.backgroundColor = "#FFFFFF";
+
+    }
+    else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
+  //haceresto otro 
+  btnModoColor.classList.add("darkMode");
+  btnModoColor.classList.remove("lightMode");
+
+  BodyContainer.style.backgroundColor = "#000000";
+
+}
   }
 
+
+btnPanelImagen.addEventListener('click', (event) => cambiarPanel(event))
+btnPanelTexto.addEventListener('click', (event) => cambiarPanel(event))
+btnModoColor.addEventListener('click', (event) => cambiarPanel(event))
+ 
 
 
 }
