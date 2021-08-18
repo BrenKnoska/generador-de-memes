@@ -30,8 +30,35 @@ const inicializarPaneles = () => {
   let btnPanelImagen = document.getElementById('btnImagen');
   let btnPanelTexto = document.getElementById('btnTexto')
   let btnModoColor = document.getElementById('btnLight');
-  //  ------------------modo oscuro y modo claro----------------------------------------------------------------------//
+  //  -------------------------------------------------MODO OSCURO Y CLARO 1----------------------------------------------------------------------//
   let BodyContainer = document.querySelector('.Container');
+  let BodyHeader = document.getElementById('contenedorBody');
+  let HeaderButton = document.getElementById('btnImagen');
+  let HeaderText = document.getElementById('btnTexto');
+  let HeaderLight = document.getElementById('btnLight');
+  let PieDePagina = document.getElementById('Pie');
+  let BarraLateral = document.getElementById('panel-imagen');
+  let LinkBarra = document.getElementById('barraLink');
+  let FondColor = document.getElementById('selectorRosa');
+  let SelectorColor = document.querySelector('input[type="color"]')
+  let SelectorTexto = document.querySelector('input[type="text"]')
+  let ReiniciarFiltro = document.getElementById('resetbutton')
+  let TituloModoClaro = document.getElementById('GeneradorTexto')
+  let ColorPanelTexto = document.getElementById('panel-texto')
+  let Informacion = document.getElementById ('SuperiorTexto')
+  let InformacionInferior = document.getElementById ('InferiorTexto')
+  let PickearTexto = document.getElementById ('textPick')
+  let LineaTexto = document.getElementById ('RayasBotones')
+  let LineaTextoDos= document.getElementById ('RayasBotonesDos')
+  let LineaTextoTres= document.getElementById ('RayasBotonesTres')
+  let ListaDeNumeros= document.getElementById ('Numeral')
+  let TextoCuadro = document.getElementById ('colorPickers')
+  let TextoCuadroDos= document.getElementById ('colorPickersDos')
+  let PosicionNinguno= document.getElementById ('Ninguno')
+  let PosicionClaro = document.getElementById ('Claro')
+  let PosicionOscuro = document.getElementById ('Oscuro')
+  let NumberEspaciado= document.getElementById('NumeroEspaciado')
+  let NumberInterlineado =document.getElementById('NumeroInterlineado')
   // -----------------------------------------------------FILTRO DE IMAGEN--------------------------------------------------------------------------------
   let imagen = document.querySelector('.Containernegro');
   let FBrillo = document.getElementById('brightneSlider');
@@ -44,7 +71,6 @@ const inicializarPaneles = () => {
   let FSaturation = document.getElementById('saturateSlider');
   let FInvert = document.getElementById('invertSlider');
   let PColor = document.getElementById('colorPicker');
-  const resetbutton = document.querySelector('.resetbutton');
   const valueFilter = () => imagen.style.filter = `brightness(${FBrillo.value}) opacity(${FOpacity.value}) blur(${FBlur.value}px) contrast(${FContrast.value}%) grayscale(${FGray.value}%) hue-rotate(${FHue.value}deg) sepia(${FSepia.value}%) saturate(${FSaturation.value}%) invert(${FInvert.value})`;
   const BtnR = () => {
     FBrillo.value = 1;
@@ -59,7 +85,7 @@ const inicializarPaneles = () => {
     valueFilter()
   }
   // ---------------------------------------------------------MODO DE FUSIÓN-------------------------------------------------------------------------------
-  resetbutton.addEventListener('click', BtnR);
+  ReiniciarFiltro.addEventListener('click', BtnR);
   let CBlend = document.getElementById('colorBlend');
   CBlend.addEventListener('click', () => imagen.style.backgroundBlendMode = CBlend.value)
 
@@ -100,12 +126,46 @@ const inicializarPaneles = () => {
       panelImagen.classList.add('no-mostrar');
       panelTexto.classList.remove('no-mostrar');
     }
+    // --------------------------------------------------MODO OSCURO/MODO CLARO---------------------------------------------------------------------------------
     else if (event.target.id == "btnLight" && event.target.classList[1] == "darkMode") {
       //haceresto otro 
       btnModoColor.classList.add("lightMode");
       btnModoColor.classList.remove("darkMode");
 
-      BodyContainer.style.backgroundColor = "#FFFFFF";
+      BodyContainer.style.backgroundColor = "#FDD9D2";
+      BodyHeader.classList.add("bodyColorCoral");
+      HeaderButton.classList.add("buttonColorLight");
+      HeaderText.classList.add("buttonColorLight");
+      HeaderLight.classList.add("buttonColorLight");
+      PieDePagina.style.backgroundColor = "#FDD9D2";
+      BarraLateral.classList.add("bodyColorLight");
+      LinkBarra.classList.add("formHoverInput");
+      FondColor.classList.add("formHoverBlanco");
+      SelectorColor.classList.add("formHoverInput");
+      CBlend.classList.add("formHoverBlanco");
+      FondColor.style.border = "#FADCE9";
+      SelectorTexto.classList.add("formHoverInput");
+      ReiniciarFiltro.classList.add("formHoverBlanco");
+      TituloModoClaro.classList.add("GeneradorTexto");
+      ColorPanelTexto.classList.add("bodyColorLight");
+      Informacion.classList.add("formHoverBlanco");
+      InformacionInferior.classList.add("formHoverBlanco");
+      PickearTexto.classList.add("formHoverBlanco");
+      LineaTexto.classList.add("formHoverBlanco");
+      LineaTextoDos.classList.add('formHoverBlanco');
+      LineaTextoTres.classList.add('formHoverBlanco');
+      ListaDeNumeros.classList.add("formHoverBlanco");
+      TextoCuadro.classList.add("formHoverBlanco");
+      TextoCuadroDos.classList.add("formHoverBlanco");
+      PosicionNinguno.classList.add("formHoverBlanco");
+      PosicionClaro.classList.add("formHoverBlanco");
+      PosicionOscuro.classList.add("formHoverBlanco");
+      NumberEspaciado.classList.add("formHoverBlanco");
+      NumberInterlineado.classList.add("formHoverBlanco");
+      
+      
+      
+   
 
     }
     else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
@@ -113,7 +173,36 @@ const inicializarPaneles = () => {
       btnModoColor.classList.add("darkMode");
       btnModoColor.classList.remove("lightMode");
 
-      BodyContainer.style.backgroundColor = "#000000";
+      BodyContainer.style.backgroundColor = "#30343F";
+      BodyHeader.classList.remove("bodyColorCoral");
+      HeaderButton.classList.remove("buttonColorLight");
+      HeaderText.classList.remove("buttonColorLight");
+      HeaderLight.classList.remove("buttonColorLight");
+      PieDePagina.style.backgroundColor = "#30343F";
+      BarraLateral.classList.remove("bodyColorLight");
+      LinkBarra.classList.remove("formHoverInput");
+      FondColor.classList.remove("formHoverBlanco");
+      SelectorColor.classList.remove("formHoverInput");
+      //      CBlend.style.backgroundColor="#252935";
+      CBlend.classList.remove("formHoverBlanco");
+      ReiniciarFiltro.classList.remove("formHoverBlanco");
+      TituloModoClaro.classList.remove("GeneradorTexto");
+      ColorPanelTexto.classList.remove("bodyColorLight");
+      Informacion.classList.remove("formHoverBlanco");
+      InformacionInferior.classList.remove("formHoverBlanco");
+      PickearTexto.classList.remove("formHoverBlanco");
+      LineaTexto.classList.remove("formHoverBlanco");
+      LineaTextoDos.classList.remove("formHoverBlanco");
+      LineaTextoTres.classList.remove("formHoverBlanco");
+      ListaDeNumeros.classList.remove("formHoverBlanco");
+      TextoCuadro.classList.remove("formHoverBlanco");     
+      TextoCuadroDos.classList.remove("formHoverBlanco");
+      PosicionNinguno.classList.remove("formHoverBlanco");
+      PosicionClaro.classList.remove("formHoverBlanco");
+      PosicionOscuro.classList.remove("formHoverBlanco");
+      NumberEspaciado.classList.remove("formHoverBlanco");
+      NumberInterlineado.classList.remove("formHoverBlanco");
+  
 
     }
   }
