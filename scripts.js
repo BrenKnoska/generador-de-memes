@@ -22,6 +22,10 @@
 const inicializarPaneles = () => {
 
   const link = document.querySelector('.texturl');
+  const EscrituraSuperior= document.getElementById('SuperiorTexto');
+  const EscrituraInferior= document.getElementById('InferiorTexto');
+  const MemeTexto = document.querySelector('.Textsmeme');
+  const MemeTextoAbajo = document.querySelector('.Bottomeme');
 
   //--------------------------------------------------BOTONES NAV-----------------------------------------------------  
   let panelImagen = document.getElementById("panel-imagen");
@@ -113,6 +117,11 @@ const inicializarPaneles = () => {
   const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
 
   link.addEventListener('input', cargarImagen);
+// -------------------------------------------------------------------INSERTAR TEXTO SUPERIOR E INFERIOR---------------------------------------------------------------
+  let cargarTextoSuperior= () =>  MemeTexto.innerText= EscrituraSuperior.value;
+  EscrituraSuperior.addEventListener('input', cargarTextoSuperior);
+  let cargarTextoInferior =()=> MemeTextoAbajo.innerText= EscrituraInferior.value;
+  EscrituraInferior.addEventListener('input', cargarTextoInferior);
   // ------------------------------------------------------------------PANEL------------------------------------------------------------------------------
 
   const cambiarPanel = (event) => {
@@ -169,7 +178,7 @@ const inicializarPaneles = () => {
 
     }
     else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
-      //haceresto otro 
+     
       btnModoColor.classList.add("darkMode");
       btnModoColor.classList.remove("lightMode");
 
@@ -206,6 +215,10 @@ const inicializarPaneles = () => {
 
     }
   }
+// --------------------------------------------------SECCIÓN DE TEXTO-------------------------------------------------------
+
+
+
 
 
   btnPanelImagen.addEventListener('click', (event) => cambiarPanel(event))
