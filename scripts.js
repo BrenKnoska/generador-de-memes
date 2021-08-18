@@ -109,20 +109,20 @@ const inicializarPaneles = () => {
 
     }
     else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
-  //haceresto otro 
-  btnModoColor.classList.add("darkMode");
-  btnModoColor.classList.remove("lightMode");
+      //haceresto otro 
+      btnModoColor.classList.add("darkMode");
+      btnModoColor.classList.remove("lightMode");
 
-  BodyContainer.style.backgroundColor = "#000000";
+      BodyContainer.style.backgroundColor = "#000000";
 
-}
+    }
   }
 
 
-btnPanelImagen.addEventListener('click', (event) => cambiarPanel(event))
-btnPanelTexto.addEventListener('click', (event) => cambiarPanel(event))
-btnModoColor.addEventListener('click', (event) => cambiarPanel(event))
- 
+  btnPanelImagen.addEventListener('click', (event) => cambiarPanel(event))
+  btnPanelTexto.addEventListener('click', (event) => cambiarPanel(event))
+  btnModoColor.addEventListener('click', (event) => cambiarPanel(event))
+
 
 
 }
