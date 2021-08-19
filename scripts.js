@@ -115,6 +115,41 @@ const CambiarFontSize = () => {
 }
 TamañoDeLetra.addEventListener('change', CambiarFontSize);
 
+// ----------------------------------------------------------CONTORNO DEL TEXTO------------------------------------------------------
+
+const Ninguno = document.getElementById('Ninguno');
+const Claro = document.getElementById('Claro');
+const Oscuro = document.getElementById('Oscuro');
+const changeStroke = (event) => {
+ 
+
+    if (event.target === Ninguno) {
+        MemeTexto.classList.remove('Oscuro', 'Claro');
+        MemeTextoAbajo.classList.remove('Oscuro', 'Claro');
+    } else if (event.target === Claro) {
+        MemeTexto.classList.remove('Oscuro', 'Ninguno');
+        MemeTextoAbajo.classList.remove('Oscuro', 'Ninguno');
+        MemeTexto.classList.add('Claro');
+        MemeTextoAbajo.classList.add('Claro');
+
+    } else if (event.target === Oscuro) {
+        MemeTexto.classList.remove('Claro', 'Ninguno');
+        MemeTextoAbajo.classList.remove('Claro', 'Ninguno');
+        MemeTexto.classList.add('Oscuro');
+        MemeTextoAbajo.classList.add('Oscuro');
+    }
+}
+
+Ninguno.addEventListener("click", changeStroke)
+Claro.addEventListener("click", changeStroke)
+Oscuro.addEventListener("click", changeStroke)
+
+
+
+
+
+
+
   // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
   FOpacity.addEventListener('click', () => valueFilter())
