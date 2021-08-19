@@ -91,7 +91,20 @@ const inicializarPaneles = () => {
 
   let FuenteTextoDos = document.getElementById('textPick');
   FuenteTextoDos.addEventListener('click', () => MemeTextoAbajo.style.fontFamily = FuenteTextoDos.value);
+  // -----------------------------------------------------------------INTERLINEADO---------------------------------------------------------------------------------------------
+  let InterlineadoSuperior = document.getElementById('NumeroInterlineado');
+  InterlineadoSuperior.addEventListener('click', () => MemeTexto.style.lineHeight = InterlineadoSuperior.value);
 
+  let InterlineadoInferior = document.getElementById('NumeroInterlineado');
+  InterlineadoInferior.addEventListener('click', () => MemeTextoAbajo.style.lineHeight = InterlineadoInferior.value);
+
+  // ----------------------------------------------------------ESPACIADO---------------------------------------------------------------------------------------------------------------------
+  const CambiarEspaciado = document.getElementById("NumeroEspaciado");
+  const CambiarPadding = () => {
+    const paddingValue = CambiarEspaciado.value;
+    MemeTexto.style.padding = `${paddingValue}px 50px`
+    MemeTextoAbajo.style.padding = `${paddingValue}px 50px`
+  }
 
   // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
@@ -111,10 +124,10 @@ const inicializarPaneles = () => {
     rgbNumber.innerText = PColor.value.toUpperCase()
   })
 
-  TextoCuadro.addEventListener('input',()=>{
-MemeTexto.style.color= TextoCuadro.value
-TextoRadial.innerText =TextoCuadro.value.toUpperCase()
-MemeTextoAbajo.style.color=TextoCuadro.value
+  TextoCuadro.addEventListener('input', () => {
+    MemeTexto.style.color = TextoCuadro.value
+    TextoRadial.innerText = TextoCuadro.value.toUpperCase()
+    MemeTextoAbajo.style.color = TextoCuadro.value
   });
   TextoCuadroDos.addEventListener('input', () => {
     MemeTexto.style.backgroundColor = TextoCuadroDos.value
