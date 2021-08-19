@@ -8,11 +8,12 @@ const inicializarPaneles = () => {
   const CheckSuperior = document.getElementById('checksupText')
   const CheckInferior = document.getElementById('checkinfText')
   const CheckTransparente = document.getElementById('checkTransparent')
-  const AlineacionInicial= document.getElementById('RayasBotones')
-  const AlineacionCentral= document.getElementById('RayasBotonesDos')
+  const AlineacionInicial = document.getElementById('RayasBotones')
+  const AlineacionCentral = document.getElementById('RayasBotonesDos')
   const AlineacionFinal = document.getElementById('RayasBotonesTres')
-  
-  // paso 1 : creo una nueva variable para el boton que voy a escuchar
+  const TextoRadial = document.getElementById('colorFondoValue')
+  const FondoRadial = document.getElementById('colorFondoValueDos')
+
 
 
   //--------------------------------------------------BOTONES NAV-----------------------------------------------------
@@ -102,7 +103,7 @@ const inicializarPaneles = () => {
   FHue.addEventListener(`click`, () => valueFilter())
   FSaturation.addEventListener(`click`, () => valueFilter())
   FInvert.addEventListener(`click`, () => valueFilter())
-  // ---------------------------------------------------------SELECTOR RADIAL------------------------------------------------------------------------------
+  // ---------------------------------------------------------SELECTORES RADIALES------------------------------------------------------------------------------
   let rgbNumber = document.querySelector('.numerocolor');
 
   PColor.addEventListener(`input`, () => {
@@ -110,10 +111,20 @@ const inicializarPaneles = () => {
     rgbNumber.innerText = PColor.value.toUpperCase()
   })
 
+  TextoCuadro.addEventListener('input',()=>{
+MemeTexto.style.color= TextoCuadro.value
+TextoRadial.innerText =TextoCuadro.value.toUpperCase()
+MemeTextoAbajo.style.color=TextoCuadro.value
+  });
+  TextoCuadroDos.addEventListener('input', () => {
+    MemeTexto.style.backgroundColor = TextoCuadroDos.value
+    FondoRadial.innerText = TextoCuadroDos.value.toUpperCase()
+    MemeTextoAbajo.style.backgroundColor = TextoCuadroDos.value
+  });
 
   // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
   const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
- 
+
   link.addEventListener('input', cargarImagen);
   // -------------------------------------------------------------------INSERTAR TEXTO SUPERIOR E INFERIOR---------------------------------------------------------------
   let cargarTextoSuperior = () => MemeTexto.innerText = EscrituraSuperior.value;
@@ -139,23 +150,20 @@ const inicializarPaneles = () => {
     }
   })
 
-  // paso 2  creo addEventListener de la variable que escribi en el paso 1
-  //  para escuchar mi evento click  y en la funcion detallo lo que quiero que pase 
-// paso 3:  creo la funcion con el comportamiento donde le digo que estilos van o que estilos no van
 
-AlineacionInicial.addEventListener('click',()=>{
-  MemeTexto.style.justifyContent = "start"
-  MemeTextoAbajo.style.justifyContent="start"
+  AlineacionInicial.addEventListener('click', () => {
+    MemeTexto.style.justifyContent = "start"
+    MemeTextoAbajo.style.justifyContent = "start"
   });
 
-  AlineacionCentral.addEventListener('click',()=>{
-    MemeTexto.style.justifyContent="center"
-    MemeTextoAbajo.style.justifyContent="center"
+  AlineacionCentral.addEventListener('click', () => {
+    MemeTexto.style.justifyContent = "center"
+    MemeTextoAbajo.style.justifyContent = "center"
   });
 
-  AlineacionFinal.addEventListener('click',()=>{
-    MemeTexto.style.justifyContent="flex-end"
-    MemeTextoAbajo.style.justifyContent="flex-end"
+  AlineacionFinal.addEventListener('click', () => {
+    MemeTexto.style.justifyContent = "flex-end"
+    MemeTextoAbajo.style.justifyContent = "flex-end"
   });
 
   CheckTransparente.addEventListener('click', () => {
@@ -166,9 +174,9 @@ AlineacionInicial.addEventListener('click',()=>{
     } else if (CheckTransparente.checked == false) {
       MemeTexto.classList.remove('bannerTransparente');
       MemeTextoAbajo.classList.remove('bannerTransparente');
-   
-      
-    
+
+
+
     }
   })
 
@@ -188,7 +196,7 @@ AlineacionInicial.addEventListener('click',()=>{
 
     // --------------------------------------------------MODO OSCURO/MODO CLARO---------------------------------------------------------------------------------
     else if (event.target.id == "btnLight" && event.target.classList[1] == "darkMode") {
-      //haceresto otro
+
       btnModoColor.classList.add("lightMode");
       btnModoColor.classList.remove("darkMode");
 
