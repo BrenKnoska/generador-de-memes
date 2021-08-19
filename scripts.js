@@ -144,8 +144,18 @@ Ninguno.addEventListener("click", changeStroke)
 Claro.addEventListener("click", changeStroke)
 Oscuro.addEventListener("click", changeStroke)
 
+// -------------------------------------------------------BOTÓN DESCARGAR--------------------------------------------------------------------------------
+const meme = document.querySelector('.memecontainer');
+const DescargaMeme = document.getElementById('botonDescargaMeme');
 
+const download = () => {
+    domtoimage.toBlob(meme)
+    .then(function (blob) {
+        window.saveAs(blob, 'meme-download.png');
+    });
+}
 
+DescargaMeme.addEventListener('click', download)
 
 
 
