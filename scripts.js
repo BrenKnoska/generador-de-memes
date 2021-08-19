@@ -1,33 +1,21 @@
-//1-URL tengo que agarrar una url de algo lado 
-//y que con un evento se actualice el cuadrado de mi imagen
-//para hacer esto necesito que js detecte del INPUT la url que escribi
-// necesito que ese valor de url que guarde ponerlo como background-image de mi elemento container negro
-
-//2-FONDO  necesito de mi INPUT color picker agarrar el color. Ese color que guarde ,
-//cuando se efectue algu cambio tengo que actualizarlo en mi texto #0000...
-
-//3-BLEND-MODE  esto tiene que actualizar cuando yo seleccione una opcion el "background-blend-mode"
-//de mi container negro 
-
-//4- FILTROS cada filtro tiene que guardar el valor de range en una variable. con esos valores voy a 
-// actualizar el valor opacity,brillo,etc de mi container negro. asi con todos 
-
-//5- restablecer filtros cuando apreto este boton TODOS los valores de las variables que 
-//hice tienen que volver a cero 
-
-//a- declaro las variables let,const y las inicializo, sino siempre me devuelven null
-//panel imagen
-
-
 const inicializarPaneles = () => {
 
   const link = document.querySelector('.texturl');
-  const EscrituraSuperior= document.getElementById('SuperiorTexto');
-  const EscrituraInferior= document.getElementById('InferiorTexto');
+  const EscrituraSuperior = document.getElementById('SuperiorTexto');
+  const EscrituraInferior = document.getElementById('InferiorTexto');
   const MemeTexto = document.querySelector('.Textsmeme');
   const MemeTextoAbajo = document.querySelector('.Bottomeme');
+  const CheckSuperior = document.getElementById('checksupText')
+  const CheckInferior = document.getElementById('checkinfText')
+  const CheckTransparente = document.getElementById('checkTransparent')
+  const AlineacionInicial= document.getElementById('RayasBotones')
+  const AlineacionCentral= document.getElementById('RayasBotonesDos')
+  const AlineacionFinal = document.getElementById('RayasBotonesTres')
+  
+  // paso 1 : creo una nueva variable para el boton que voy a escuchar
 
-  //--------------------------------------------------BOTONES NAV-----------------------------------------------------  
+
+  //--------------------------------------------------BOTONES NAV-----------------------------------------------------
   let panelImagen = document.getElementById("panel-imagen");
   let panelTexto = document.getElementById("panel-texto");
 
@@ -49,22 +37,23 @@ const inicializarPaneles = () => {
   let ReiniciarFiltro = document.getElementById('resetbutton')
   let TituloModoClaro = document.getElementById('GeneradorTexto')
   let ColorPanelTexto = document.getElementById('panel-texto')
-  let Informacion = document.getElementById ('SuperiorTexto')
-  let InformacionInferior = document.getElementById ('InferiorTexto')
-  let PickearTexto = document.getElementById ('textPick')
-  let LineaTexto = document.getElementById ('RayasBotones')
-  let LineaTextoDos= document.getElementById ('RayasBotonesDos')
-  let LineaTextoTres= document.getElementById ('RayasBotonesTres')
-  let ListaDeNumeros= document.getElementById ('Numeral')
-  let TextoCuadro = document.getElementById ('colorPickers')
-  let TextoCuadroDos= document.getElementById ('colorPickersDos')
-  let PosicionNinguno= document.getElementById ('Ninguno')
-  let PosicionClaro = document.getElementById ('Claro')
-  let PosicionOscuro = document.getElementById ('Oscuro')
-  let NumberEspaciado= document.getElementById('NumeroEspaciado')
-  let NumberInterlineado =document.getElementById('NumeroInterlineado')
+  let Informacion = document.getElementById('SuperiorTexto')
+  let InformacionInferior = document.getElementById('InferiorTexto')
+  let PickearTexto = document.getElementById('textPick')
+  let LineaTexto = document.getElementById('RayasBotones')
+  let LineaTextoDos = document.getElementById('RayasBotonesDos')
+  let LineaTextoTres = document.getElementById('RayasBotonesTres')
+  let ListaDeNumeros = document.getElementById('Numeral')
+  let TextoCuadro = document.getElementById('colorPickers')
+  let TextoCuadroDos = document.getElementById('colorPickersDos')
+  let PosicionNinguno = document.getElementById('Ninguno')
+  let PosicionClaro = document.getElementById('Claro')
+  let PosicionOscuro = document.getElementById('Oscuro')
+  let NumberEspaciado = document.getElementById('NumeroEspaciado')
+  let NumberInterlineado = document.getElementById('NumeroInterlineado')
   // -----------------------------------------------------FILTRO DE IMAGEN--------------------------------------------------------------------------------
   let imagen = document.querySelector('.Containernegro');
+
   let FBrillo = document.getElementById('brightneSlider');
   let FOpacity = document.getElementById('opacitySlider');
   let FGray = document.getElementById('grayScaleSlider');
@@ -94,6 +83,15 @@ const inicializarPaneles = () => {
   CBlend.addEventListener('click', () => imagen.style.backgroundBlendMode = CBlend.value)
 
 
+
+  // -------------------------------------------------------------TEXTOS DE IMAGEN----------------------------------------------------------------------------------------
+  let FuenteTexto = document.getElementById('textPick');
+  FuenteTexto.addEventListener('click', () => MemeTexto.style.fontFamily = FuenteTexto.value);
+
+  let FuenteTextoDos = document.getElementById('textPick');
+  FuenteTextoDos.addEventListener('click', () => MemeTextoAbajo.style.fontFamily = FuenteTextoDos.value);
+
+
   // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
   FOpacity.addEventListener('click', () => valueFilter())
@@ -115,13 +113,65 @@ const inicializarPaneles = () => {
 
   // ---------------------------------------------------------INSERTAR IMAGEN URL----------------------------------------------------------------------------
   const cargarImagen = () => imagen.style.backgroundImage = `url("${link.value}")`;
-
+ 
   link.addEventListener('input', cargarImagen);
-// -------------------------------------------------------------------INSERTAR TEXTO SUPERIOR E INFERIOR---------------------------------------------------------------
-  let cargarTextoSuperior= () =>  MemeTexto.innerText= EscrituraSuperior.value;
+  // -------------------------------------------------------------------INSERTAR TEXTO SUPERIOR E INFERIOR---------------------------------------------------------------
+  let cargarTextoSuperior = () => MemeTexto.innerText = EscrituraSuperior.value;
   EscrituraSuperior.addEventListener('input', cargarTextoSuperior);
-  let cargarTextoInferior =()=> MemeTextoAbajo.innerText= EscrituraInferior.value;
+  let cargarTextoInferior = () => MemeTextoAbajo.innerText = EscrituraInferior.value;
   EscrituraInferior.addEventListener('input', cargarTextoInferior);
+
+  CheckSuperior.addEventListener('click', () => {
+    if (CheckSuperior.checked == true) {
+      MemeTexto.classList.add('no-mostrar');
+
+    } else if (CheckSuperior.checked == false) {
+      MemeTexto.classList.remove('no-mostrar');
+    }
+  })
+  CheckInferior.addEventListener('click', () => {
+    if (CheckInferior.checked == true) {
+      MemeTextoAbajo.classList.add('no-mostrar');
+
+    } else if (CheckInferior.checked == false) {
+      MemeTextoAbajo.classList.remove('no-mostrar');
+
+    }
+  })
+
+  // paso 2  creo addEventListener de la variable que escribi en el paso 1
+  //  para escuchar mi evento click  y en la funcion detallo lo que quiero que pase 
+// paso 3:  creo la funcion con el comportamiento donde le digo que estilos van o que estilos no van
+
+AlineacionInicial.addEventListener('click',()=>{
+  MemeTexto.style.justifyContent = "start"
+  MemeTextoAbajo.style.justifyContent="start"
+  });
+
+  AlineacionCentral.addEventListener('click',()=>{
+    MemeTexto.style.justifyContent="center"
+    MemeTextoAbajo.style.justifyContent="center"
+  });
+
+  AlineacionFinal.addEventListener('click',()=>{
+    MemeTexto.style.justifyContent="flex-end"
+    MemeTextoAbajo.style.justifyContent="flex-end"
+  });
+
+  CheckTransparente.addEventListener('click', () => {
+    if (CheckTransparente.checked == true) {
+      MemeTexto.classList.add('bannerTransparente');
+      MemeTextoAbajo.classList.add('bannerTransparente');
+
+    } else if (CheckTransparente.checked == false) {
+      MemeTexto.classList.remove('bannerTransparente');
+      MemeTextoAbajo.classList.remove('bannerTransparente');
+   
+      
+    
+    }
+  })
+
   // ------------------------------------------------------------------PANEL------------------------------------------------------------------------------
 
   const cambiarPanel = (event) => {
@@ -135,9 +185,10 @@ const inicializarPaneles = () => {
       panelImagen.classList.add('no-mostrar');
       panelTexto.classList.remove('no-mostrar');
     }
+
     // --------------------------------------------------MODO OSCURO/MODO CLARO---------------------------------------------------------------------------------
     else if (event.target.id == "btnLight" && event.target.classList[1] == "darkMode") {
-      //haceresto otro 
+      //haceresto otro
       btnModoColor.classList.add("lightMode");
       btnModoColor.classList.remove("darkMode");
 
@@ -171,14 +222,14 @@ const inicializarPaneles = () => {
       PosicionOscuro.classList.add("formHoverBlanco");
       NumberEspaciado.classList.add("formHoverBlanco");
       NumberInterlineado.classList.add("formHoverBlanco");
-      
-      
-      
-   
+
+
+
+
 
     }
     else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
-     
+
       btnModoColor.classList.add("darkMode");
       btnModoColor.classList.remove("lightMode");
 
@@ -204,18 +255,17 @@ const inicializarPaneles = () => {
       LineaTextoDos.classList.remove("formHoverBlanco");
       LineaTextoTres.classList.remove("formHoverBlanco");
       ListaDeNumeros.classList.remove("formHoverBlanco");
-      TextoCuadro.classList.remove("formHoverBlanco");     
+      TextoCuadro.classList.remove("formHoverBlanco");
       TextoCuadroDos.classList.remove("formHoverBlanco");
       PosicionNinguno.classList.remove("formHoverBlanco");
       PosicionClaro.classList.remove("formHoverBlanco");
       PosicionOscuro.classList.remove("formHoverBlanco");
       NumberEspaciado.classList.remove("formHoverBlanco");
       NumberInterlineado.classList.remove("formHoverBlanco");
-  
+
 
     }
   }
-// --------------------------------------------------SECCIÓN DE TEXTO-------------------------------------------------------
 
 
 

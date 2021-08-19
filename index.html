@@ -118,7 +118,7 @@
         <label class="firstCheck"> <input type="checkbox" id="checksupText" value="activado"> Sin texto superior</label>
         <h3 class="titulos">INFERIOR</h3>
         <input type="text" class="textInf whiteLetter" id="InferiorTexto">
-        <label class="twoCheck"> <input type="checkbox" id="checkinfText" value="activado"> Sin texto superior</label>
+        <label class="twoCheck"> <input type="checkbox" id="checkinfText" value="activado"> Sin texto inferior</label>
         <strong class="titulos">FUENTE</strong>
 
         <div class="Fuenteseccion">
@@ -127,7 +127,8 @@
                 <option value="Arial Black">Arial Black</option>
                 <option value="American Typewriter">American Typewriter</option>
                 <option value="Andale Mono">Andale Mono</option>
-                <option value="Comic Sans">Comic Sans MS</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Helvetica">Helvetica</option>
                 <option value="Impact">Impact</option>
                 <option value="Verdana">Verdana</option>
                 <option value="Times New Roman">Times New Roman</option>
@@ -160,7 +161,8 @@
 
 
         </div>
-        <label class="firstCheck"> <input type="checkbox" id="checksupText" value="activado"> Fondo transparente</label>
+        <label class="firstCheck"> <input type="checkbox" id="checkTransparent" value="activado"> Fondo
+            transparente</label>
         <h3 class="titulOutline">CONTORNO</h3>
         <div>
             <button class="linerOutline whiteLetter" id="Ninguno">
@@ -176,8 +178,13 @@
         <h3 class="titulos">ESPACIADO</h3>
         <input type="number" class="numberSpace whiteLetter" id="NumeroEspaciado">
         <h3 class="titulos">INTERLINEADO</h3>
-        <input type="number" class="numberLiner whiteLetter" id="NumeroInterlineado">
-
+        <select name="" id="NumeroInterlineado" class="textselector whiteLetter">
+            <option value="0.8">0.8</option>
+            <option value="1">1</option>
+            <option value="1.2">1.2</option>
+            <option value="1.5">1.5</option>
+            <option value="2">2.5</option>
+        </select>
 
 
 
@@ -192,10 +199,14 @@
 <body id="contenedorBody">
 
     <div class="Container" id="Pie">
+        <div class="memecontainer">
+            <h2 class="Textsmeme"> TOP TEXT </h2>
+            <div class="Containernegro">
 
-        <h2 class="Textsmeme"> TOP TEXT </h2>
-        <div class="Containernegro"> </div>
-        <h2 class="Bottomeme">BOTTOM TEXT</h2>
+            </div>
+            <h2 class="Bottomeme">BOTTOM TEXT</h2>
+
+        </div>
 
         <div class="" id="Pie">
             <button class="btnMeme buttonMove">
