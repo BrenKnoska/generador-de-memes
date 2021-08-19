@@ -105,6 +105,15 @@ const inicializarPaneles = () => {
     MemeTexto.style.padding = `${paddingValue}px 50px`
     MemeTextoAbajo.style.padding = `${paddingValue}px 50px`
   }
+  CambiarEspaciado.addEventListener("input", CambiarPadding)
+
+//------------------------------------------------------------ TAMAÑO DE FUENTE  -----------------------------------
+const TamañoDeLetra = document.getElementById('Numeral');
+const CambiarFontSize = () => {
+    MemeTexto.style.fontSize = TamañoDeLetra.value + "px";
+    MemeTextoAbajo.style.fontSize = TamañoDeLetra.value + "px";
+}
+TamañoDeLetra.addEventListener('change', CambiarFontSize);
 
   // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
