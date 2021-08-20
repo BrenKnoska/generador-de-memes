@@ -42,7 +42,6 @@ i {
     height: 15vh;
     color: black;
     display: flex;
-    margin-left: 30%;
     /* padding-right: 2%; */
     padding-top: 2%;
     padding-right: 2%;
@@ -57,7 +56,6 @@ i {
     width: 41vw;
     height: 57vh;
     justify-content: center;
-    margin-left: 30%;
     justify-content: center;
     background-color: black;
     padding: 0%;
@@ -121,7 +119,6 @@ li {
     height: 15vh;
     color: black;
     display: flex;
-    margin-left: 30%;
     padding-top: 2%;
     padding-right: 1%;
     padding-left: 1%;
@@ -182,7 +179,6 @@ input {
     background-color: #393E49;
     outline: none;
 }
-
 
 input.texturl:hover {
     background-color: #393E49;
@@ -280,7 +276,6 @@ button.botonesHeader:hover {
     transition: 1s;
 }
 
-
 .colorpicker {
     display: flex;
     width: 40px;
@@ -340,7 +335,8 @@ button.botonesHeader:hover {
 .no-mostrar {
     display: none;
 }
-.bannerTransparente{
+
+.bannerTransparente {
     background-color: transparent;
 }
 
@@ -351,8 +347,6 @@ button.botonesHeader:hover {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 12px;
     margin-top: 10%;
-    
-
 }
 
 .textSup {
@@ -516,9 +510,9 @@ input.colorpickerText {
 /* ----------------------------------------------DESCARGAR MEME----------------------------------------------------------- */
 
 .btnMeme {
-    width: 12%;
-    margin: 1%;
-    padding-top: 1%;
+    width: auto;
+    margin-top: 2%;
+    padding: 3%;
     font-size: 36px;
     background-color: rgba(16, 140, 255, 0.982);
     box-shadow: black 4px 4px 7px;
@@ -527,6 +521,11 @@ input.colorpickerText {
     border-style: solid black;
     border-radius: 6%;
     appearance: none;
+    background-color: #2c468d;
+}
+
+i.fas.fa-download {
+    display: flex;
 }
 
 h6 {
@@ -538,14 +537,7 @@ h6 {
     padding-top: 2%;
 }
 
-.buttonMove {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 45%;
-    background-color: #2c468d;
-}
-
-.buttonMove:hover {
+.btnMeme:hover {
     background-color: #455fa7;
     transition: 1s;
 }
@@ -562,26 +554,29 @@ h6 {
     font-family: 'Courier New', Courier, monospace;
     color: white;
     text-shadow: 2px 1px 2px rgb(0, 0, 0);
-    margin-left: 2%;
+    margin-top: 2%;
 }
+
 /* -----------------------------------------------MODO OSCURO Y MODO CLARO------------------------------------------ */
 
 .bodyColorLight {
     background-color: #FADCE9;
     color: black;
 }
-button.buttonColorLight{
+
+button.buttonColorLight {
     background-color: #E3BDBC;
     color: black;
 }
-button.buttonColorLight:hover{
+
+button.buttonColorLight:hover {
     background-color: #E3BCE1;
-color: black;
+    color: black;
 }
 
 .formHoverInput {
     background-color: #FADCE9;
-    color:black;
+    color: black;
 }
 
 .formHoverInput:hover {
@@ -589,36 +584,120 @@ color: black;
     color: black;
 }
 
-.bodyColorCoral{
+.bodyColorCoral {
     background-color: #E3BDBC;
-    color:black;
-}
-.GeneradorTexto{
     color: black;
-    font-size: 40px;
-    font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif;
+}
+
+.GeneradorTexto {
+    color: black;
     text-shadow: 1px 1px 0px rgb(253, 160, 253);
 }
-.formHoverBlanco{
+
+.formHoverBlanco {
     background-color: white;
     color: black;
 }
-.formHoverBlanco:hover{
-background-color: #E3BCE1;
-color: black;
+
+.formHoverBlanco:hover {
+    background-color: #E3BCE1;
+    color: black;
 }
-.WhiteSlider{
+
+.WhiteSlider {
     background-color: white;
-color: black;
+    color: black;
 }
-.memecontainer{
+
+.memecontainer {
     display: flex;
     flex-direction: column;
 }
 
-.Claro{
--webkit-text-stroke: 2px white;
+.Claro {
+    -webkit-text-stroke: 2px white;
 }
-.Oscuro{
+
+.Oscuro {
     -webkit-text-stroke: 2px black;
-  }
+}
+
+#Pie {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+i.far.fa-times-circle {
+    display: none;
+}
+
+@media (max-width: 768px) {
+  
+    i.far.fa-times-circle {
+        text-align: right;
+        display: block;
+        cursor: pointer;
+    }
+    .panel {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 30px 15px;
+        overflow: scroll;
+
+    }
+
+    button.botonesHeader {
+        width: auto;
+        flex-wrap: nowrap;
+    }
+    p {
+        font-size: 25px;
+    }
+    .memecontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .listcenter {
+        justify-content: space-between;
+    }
+    .Textsmeme {
+        width: 100%;
+        height: 15vh;
+        color: black;
+        display: flex;
+        justify-content: center;
+        box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 0%);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 42px;
+        overflow: scroll;
+        margin: 0px;
+    }
+    .Containernegro {
+        width: 100%;
+        height: 57vh;
+        justify-content: center;
+        justify-content: center;
+        background-color: black;
+        padding: 0%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin: 0px;
+    }
+    .Bottomeme {
+        color: black;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        box-shadow: 5px 5px 15px 5px rgb(0 0 0 / 0%);
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 42px;
+        margin: 0px;
+    }
+}

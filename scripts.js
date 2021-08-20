@@ -13,8 +13,8 @@ const inicializarPaneles = () => {
   const AlineacionFinal = document.getElementById('RayasBotonesTres')
   const TextoRadial = document.getElementById('colorFondoValue')
   const FondoRadial = document.getElementById('colorFondoValueDos')
-
-
+  const btnCloseImg = document.getElementById('btnClosePanelImg')
+  const btnCloseTxt = document.getElementById('btnClosePanelTxt')
 
   //--------------------------------------------------BOTONES NAV-----------------------------------------------------
   let panelImagen = document.getElementById("panel-imagen");
@@ -107,58 +107,55 @@ const inicializarPaneles = () => {
   }
   CambiarEspaciado.addEventListener("input", CambiarPadding)
 
-//------------------------------------------------------------ TAMAÑO DE FUENTE  -----------------------------------
-const TamañoDeLetra = document.getElementById('Numeral');
-const CambiarFontSize = () => {
+  //------------------------------------------------------------ TAMAÑO DE FUENTE  -----------------------------------
+  const TamañoDeLetra = document.getElementById('Numeral');
+  const CambiarFontSize = () => {
     MemeTexto.style.fontSize = TamañoDeLetra.value + "px";
     MemeTextoAbajo.style.fontSize = TamañoDeLetra.value + "px";
-}
-TamañoDeLetra.addEventListener('change', CambiarFontSize);
+  }
+  TamañoDeLetra.addEventListener('change', CambiarFontSize);
 
-// ----------------------------------------------------------CONTORNO DEL TEXTO------------------------------------------------------
+  // ----------------------------------------------------------CONTORNO DEL TEXTO------------------------------------------------------
 
-const Ninguno = document.getElementById('Ninguno');
-const Claro = document.getElementById('Claro');
-const Oscuro = document.getElementById('Oscuro');
-const changeStroke = (event) => {
- 
+  const Ninguno = document.getElementById('Ninguno');
+  const Claro = document.getElementById('Claro');
+  const Oscuro = document.getElementById('Oscuro');
+  const changeStroke = (event) => {
+
 
     if (event.target === Ninguno) {
-        MemeTexto.classList.remove('Oscuro', 'Claro');
-        MemeTextoAbajo.classList.remove('Oscuro', 'Claro');
+      MemeTexto.classList.remove('Oscuro', 'Claro');
+      MemeTextoAbajo.classList.remove('Oscuro', 'Claro');
     } else if (event.target === Claro) {
-        MemeTexto.classList.remove('Oscuro', 'Ninguno');
-        MemeTextoAbajo.classList.remove('Oscuro', 'Ninguno');
-        MemeTexto.classList.add('Claro');
-        MemeTextoAbajo.classList.add('Claro');
+      MemeTexto.classList.remove('Oscuro', 'Ninguno');
+      MemeTextoAbajo.classList.remove('Oscuro', 'Ninguno');
+      MemeTexto.classList.add('Claro');
+      MemeTextoAbajo.classList.add('Claro');
 
     } else if (event.target === Oscuro) {
-        MemeTexto.classList.remove('Claro', 'Ninguno');
-        MemeTextoAbajo.classList.remove('Claro', 'Ninguno');
-        MemeTexto.classList.add('Oscuro');
-        MemeTextoAbajo.classList.add('Oscuro');
+      MemeTexto.classList.remove('Claro', 'Ninguno');
+      MemeTextoAbajo.classList.remove('Claro', 'Ninguno');
+      MemeTexto.classList.add('Oscuro');
+      MemeTextoAbajo.classList.add('Oscuro');
     }
-}
+  }
 
-Ninguno.addEventListener("click", changeStroke)
-Claro.addEventListener("click", changeStroke)
-Oscuro.addEventListener("click", changeStroke)
+  Ninguno.addEventListener("click", changeStroke)
+  Claro.addEventListener("click", changeStroke)
+  Oscuro.addEventListener("click", changeStroke)
 
-// -------------------------------------------------------BOTÓN DESCARGAR--------------------------------------------------------------------------------
-const meme = document.querySelector('.memecontainer');
-const DescargaMeme = document.getElementById('botonDescargaMeme');
+  // -------------------------------------------------------BOTÓN DESCARGAR--------------------------------------------------------------------------------
+  const meme = document.querySelector('.memecontainer');
+  const DescargaMeme = document.getElementById('botonDescargaMeme');
 
-const download = () => {
+  const download = () => {
     domtoimage.toBlob(meme)
-    .then(function (blob) {
+      .then(function (blob) {
         window.saveAs(blob, 'meme-download.png');
-    });
-}
+      });
+  }
 
-DescargaMeme.addEventListener('click', download)
-
-
-
+  DescargaMeme.addEventListener('click', download)
 
   // ---------------------------------------------------------EVENTOS FILTROS------------------------------------------------------------------------------
   FBrillo.addEventListener('click', () => valueFilter())
@@ -242,8 +239,6 @@ DescargaMeme.addEventListener('click', download)
       MemeTexto.classList.remove('bannerTransparente');
       MemeTextoAbajo.classList.remove('bannerTransparente');
 
-
-
     }
   })
 
@@ -252,6 +247,9 @@ DescargaMeme.addEventListener('click', download)
   const cambiarPanel = (event) => {
 
     if (event.target.id == "btnImagen") {
+      // if (BodyContainer.offsetWidth <= '768px') {
+        
+      // }
       panelImagen.classList.remove('no-mostrar');
       panelTexto.classList.add('no-mostrar');
     }
@@ -297,17 +295,11 @@ DescargaMeme.addEventListener('click', download)
       PosicionOscuro.classList.add("formHoverBlanco");
       NumberEspaciado.classList.add("formHoverBlanco");
       NumberInterlineado.classList.add("formHoverBlanco");
-
-
-
-
-
     }
     else if (event.target.id == "btnLight" && event.target.classList[1] == "lightMode") {
 
       btnModoColor.classList.add("darkMode");
       btnModoColor.classList.remove("lightMode");
-
       BodyContainer.style.backgroundColor = "#30343F";
       BodyHeader.classList.remove("bodyColorCoral");
       HeaderButton.classList.remove("buttonColorLight");
@@ -318,7 +310,6 @@ DescargaMeme.addEventListener('click', download)
       LinkBarra.classList.remove("formHoverInput");
       FondColor.classList.remove("formHoverBlanco");
       SelectorColor.classList.remove("formHoverInput");
-      //      CBlend.style.backgroundColor="#252935";
       CBlend.classList.remove("formHoverBlanco");
       ReiniciarFiltro.classList.remove("formHoverBlanco");
       TituloModoClaro.classList.remove("GeneradorTexto");
@@ -337,19 +328,23 @@ DescargaMeme.addEventListener('click', download)
       PosicionOscuro.classList.remove("formHoverBlanco");
       NumberEspaciado.classList.remove("formHoverBlanco");
       NumberInterlineado.classList.remove("formHoverBlanco");
-
-
     }
   }
-
-
-
-
 
   btnPanelImagen.addEventListener('click', (event) => cambiarPanel(event))
   btnPanelTexto.addEventListener('click', (event) => cambiarPanel(event))
   btnModoColor.addEventListener('click', (event) => cambiarPanel(event))
 
+
+  btnCloseImg.addEventListener('click', () => {
+   // panelImagen.style.display = "none";
+    panelImagen.classList.add('no-mostrar');
+  })
+
+  btnCloseTxt.addEventListener('click', () => {
+  
+    panelTexto.classList.add('no-mostrar');
+  })
 
 
 }
@@ -357,6 +352,4 @@ const inicializar = () => {
   inicializarPaneles()
 }
 
-
-//una vez que cargue todo comienzo a iniciar las diferentes secciones,no antes porque sino todo llega nulo
 window.onload = inicializar
